@@ -1,30 +1,32 @@
-function updateMasonry(containerId, imageMaxHeight) {
+function updateMasonry(containerId, itemMaxHeight) {
         
     const container      = document.getElementById(containerId);
     const containerWidth = container.offsetWidth - 1; // minus one to avoid rounding errors
-    const images         = container.querySelectorAll(".item");
+    const items          = container.querySelectorAll(".item");
 
     var i = 0;
 
     // process rows
-    while (i < images.length) {
+    while (i < items.length) {
         
-        const imageRowCount = Math.ceil(containerWidth / imageMaxHeight); // calculate from imageMaxHeight parameter
+        const imageRowCount = Math.ceil(containerWidth / itemMaxHeight); // calculate from itemMaxHeight parameter
         
         var aspectRatioSum = 0;
 
         for (let j = i; j < i + imageRowCount; j++) {
 
-            if (j < images.length) {
+            if (j < items.length) {
 
                 // store initial dimensions as data
-                if (images[j].dataset.initWidth == null) {
+                if (items[j].dataset.initWidth == null) {
                     
-                    images[j].dataset.initWidth  = images[j].offsetWidth;
-                    images[j].dataset.initHeight = images[j].offsetHeight;
+                    items[j].dataset.initWidth  = items[j].offsetWidth;
+                    items[j].dataset.initHeight = items[j].offsetHeight;
                 }
                 
-                aspectRatioSum += images[j].dataset.initWidth / images[j].dataset.initHeight;
+                aspectRatioSum += items[j].dataset.initWidth / items[j].dataset.initHeight;
+                
+                console.log(items[j].dataset.initWidth / items[j].dataset.initHeight);
             } else {
                 aspectRatioSum += 1;
             }
@@ -32,9 +34,10 @@ function updateMasonry(containerId, imageMaxHeight) {
 
         const height = containerWidth / aspectRatioSum;
 
-        for (let j = i; j < Math.min(i + imageRowCount, images.length); j++) {
+        for (let j = i; j < Math.min(i + imageRowCount, items.length); j++) {
             
-            images[j].style.width = height * (images[j].initWidth / images[j].initHeight) + "px";
+            items[j].style.width = height * (items[j].initWidth / items[j].initHeight) + "px";
+            console.log("width of " + j);
         }
 
         i += imageRowCount;
