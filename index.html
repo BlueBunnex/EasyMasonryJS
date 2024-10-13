@@ -12,18 +12,21 @@
 
     <div id="container" style="display: flex; flex-wrap: wrap; align-items: start;">
 
-        <div class="item" style="background: blue;"   data-init-width="90" data-init-height="50"></div>
-        <div class="item" style="background: pink;"   data-init-width="30" data-init-height="30"></div>
-        <div class="item" style="background: red;"    data-init-width="50" data-init-height="70"></div>
-        <div class="item" style="background: orange;" data-init-width="10" data-init-height="70"></div>
-        <div class="item" style="background: yellow;" data-init-width="90" data-init-height="50"></div>
-        <div class="item" style="background: grey;"   data-init-width="50" data-init-height="20"></div>
-
         <!-- you don't need to provide a data width/height if the item has an inherent width/height -->
         <img class="item" src="cat1.jpg">
         <img class="item" src="cat2.jpg">
         <img class="item" src="cat3.jpg">
         <img class="item" src="cat4.jpg">
+
+        <!-- generate some random blocks with a given data width/height (this will tell the program what its aspect ratio is -->
+        <script>
+            for (let i = 0; i < 50; i++) {
+                const color  = "#" + (Math.floor(Math.random() * 5) + 5) + (Math.floor(Math.random() * 5) + 5) + (Math.floor(Math.random() * 5) + 5);
+                const width  = Math.floor(Math.random() * 30) + 30;
+                const height = Math.floor(Math.random() * 30) + 30;
+                document.write(`<div class="item" style="background: ${ color };" data-init-width="${ width }" data-init-height="${ height }"></div>`);
+            }
+        </script>
     </div>
 
 </body>
