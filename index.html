@@ -24,7 +24,7 @@
                 const color  = "#" + (Math.floor(Math.random() * 5) + 5) + (Math.floor(Math.random() * 5) + 5) + (Math.floor(Math.random() * 5) + 5);
                 const width  = Math.floor(Math.random() * 30) + 30;
                 const height = Math.floor(Math.random() * 30) + 30;
-                document.write(`<div class="item" style="background: ${ color }; color: white; padding: 1em;" data-init-width="${ width }" data-init-height="${ height }">${ i }</div>`);
+                document.write(`<div class="item" style="background: ${ color }; color: white; padding: 1em; box-sizing: border-box;" data-init-width="${ width }" data-init-height="${ height }">${ i }</div>`);
             }
         </script>
     </div>
