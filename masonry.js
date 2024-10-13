@@ -16,7 +16,7 @@ function updateMasonry(containerId, imageMaxHeight) {
         for (let j = i; j < i + imageRowCount; j++) {
 
             if (j < images.length) {
-                aspectRatioSum += images[j].width / images[j].height;
+                aspectRatioSum += images[j].offsetWidth / images[j].offsetHeight;
             } else {
                 aspectRatioSum += 1;
             }
@@ -26,7 +26,7 @@ function updateMasonry(containerId, imageMaxHeight) {
 
         for (let j = i; j < Math.min(i + imageRowCount, images.length); j++) {
             
-            images[j].style.width = height * (images[j].naturalWidth / images[j].naturalHeight) + "px";
+            images[j].style.width = height * (images[j].offsetWidth / images[j].offsetHeight) + "px";
         }
 
         i += imageRowCount;
