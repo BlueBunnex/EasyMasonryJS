@@ -2,7 +2,7 @@ function updateMasonry(containerId, imageMaxHeight) {
         
     const container      = document.getElementById(containerId);
     const containerWidth = container.offsetWidth - 1; // minus one to avoid rounding errors
-    const images         = container.querySelectorAll("img");
+    const images         = container.querySelectorAll(".item");
 
     var i = 0;
 
