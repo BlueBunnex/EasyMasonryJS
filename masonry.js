@@ -36,7 +36,7 @@ function updateMasonry(containerId, itemMaxHeight) {
 
         for (let j = i; j < Math.min(i + imageRowCount, items.length); j++) {
             
-            items[j].style.width = height * (items[j].initWidth / items[j].initHeight) + "px";
+            items[j].style.width = height * (items[j].dataset.initWidth / items[j].dataset.initHeight) + "px";
         }
 
         i += imageRowCount;
