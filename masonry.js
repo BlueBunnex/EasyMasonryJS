@@ -8,16 +8,18 @@ function updateMasonry(containerId, itemMaxHeight) {
 
     // process rows
     while (i < items.length) {
-        
-        const imageRowCount = Math.ceil(containerWidth / itemMaxHeight); // calculate from itemMaxHeight parameter
-        
+
+        // crudely calculate number of items per row from itemMaxHeight parameter
+        const itemRowCount = Math.ceil(containerWidth / itemMaxHeight);
+
+        // get sum of all aspect ratios
         var aspectRatioSum = 0;
 
-        for (let j = i; j < i + imageRowCount; j++) {
+        for (let j = i; j < i + itemRowCount; j++) {
 
             if (j < items.length) {
 
-                // store initial dimensions as data
+                // store initial dimensions as data if not done already
                 if (items[j].dataset.initWidth == null) {
                     
                     items[j].dataset.initWidth  = items[j].offsetWidth;
@@ -30,16 +32,16 @@ function updateMasonry(containerId, itemMaxHeight) {
             }
         }
 
+        // calculate necessary height (I did a bit of math to reach this formula)
         const height = containerWidth / aspectRatioSum;
 
-        console.log(containerWidth + "; " + aspectRatioSum);
-
-        for (let j = i; j < Math.min(i + imageRowCount, items.length); j++) {
+        // calculate individual widths based on aspect ratios
+        for (let j = i; j < Math.min(i + itemRowCount, items.length); j++) {
             
             items[j].style.width  = height * (items[j].dataset.initWidth / items[j].dataset.initHeight) + "px";
-            items[j].style.height = height;
+            items[j].style.height = height + "px";
         }
 
-        i += imageRowCount;
+        i += itemRowCount;
     }
 }
