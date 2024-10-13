@@ -16,7 +16,7 @@ function updateMasonry(containerId, imageMaxHeight) {
         for (let j = i; j < i + imageRowCount; j++) {
 
             if (j < images.length) {
-                aspectRatioSum += images[j].naturalWidth / images[j].naturalHeight;
+                aspectRatioSum += images[j].width / images[j].height;
             } else {
                 aspectRatioSum += 1;
             }
