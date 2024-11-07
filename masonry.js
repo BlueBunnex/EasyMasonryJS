@@ -5,7 +5,7 @@ function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
     }
     
     const container      = document.getElementById(containerId);
-    const containerWidth = container.offsetWidth - 1; // minus one to avoid rounding errors
+    const containerWidth = container.offsetWidth - (parseFloat(container.style.paddingLeft) + parseFloat(container.style.paddingRight)) - 1; // minus one to avoid rounding errors
     const items          = container.querySelectorAll(".item");
 
     var i = 0;
