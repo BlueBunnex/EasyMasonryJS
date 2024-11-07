@@ -1,5 +1,5 @@
-function updateMasonry(containerId, itemMaxHeight) {
-        
+function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
+    
     const container      = document.getElementById(containerId);
     const containerWidth = container.offsetWidth - 1; // minus one to avoid rounding errors
     const items          = container.querySelectorAll(".item");
@@ -11,6 +11,10 @@ function updateMasonry(containerId, itemMaxHeight) {
 
         // crudely calculate number of items per row from itemMaxHeight parameter
         const itemRowCount = Math.ceil(containerWidth / itemMaxHeight);
+
+        if (doDebug) {
+            console.log("Row count: " + itemRowCount);
+        }
 
         // get sum of all aspect ratios
         var aspectRatioSum = 0;
