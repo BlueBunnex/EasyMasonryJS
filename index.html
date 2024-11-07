@@ -10,6 +10,10 @@
     <h1>Masonry demo</h1>
     <p><strong>By RedderBlanket</strong>. This is solely a horizontal (DeviantArt-like) masonry, not a vertical (Pinterest-like) masonry. <a href="https://github.com/BlueBunnex/EasyMasonryJS">Github repo</a>.</p>
 
+    <p><strong>Image items:</strong> To preserve the image's aspect ratio, the image MUST be loaded before updating masonry, because otherwise it treats the image as if it was 0x0.</p>
+
+    <p><strong>Non-image items:</strong> Either ensure the item has a width and height when updating the masonry, or set its <var>data-init-width</var> and <var>data-init-height</var> values (which are used to calculate the aspect ratio).</p>
+
     <div id="container" style="display: flex; flex-wrap: wrap; align-items: start;">
 
         <!-- you don't need to provide a data width/height if the item has an inherent width/height -->
