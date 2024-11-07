@@ -16,10 +16,6 @@ function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
         // crudely calculate number of items per row from itemMaxHeight parameter
         const itemRowCount = Math.ceil(containerWidth / itemMaxHeight);
 
-        if (doDebug) {
-            console.log("Item/row count: " + itemRowCount);
-        }
-
         // get sum of all aspect ratios
         var aspectRatioSum = 0;
 
@@ -48,6 +44,10 @@ function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
             
             items[j].style.width  = height * (items[j].dataset.initWidth / items[j].dataset.initHeight) + "px";
             items[j].style.height = height + "px";
+        }
+
+        if (doDebug) {
+            console.log("Current item index: " + i + "; Item/row count: " + itemRowCount + "; Row height: " + height);
         }
 
         i += itemRowCount;
