@@ -1,15 +1,18 @@
-function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
+function updateMasonryId(containerId, itemMaxHeight, doDebug = false) {
+
+    updateMasonryElement(document.getElementById(containerId), itemMaxHeight, doDebug);
+}
+
+function updateMasonryElement(container, itemMaxHeight, doDebug = false) {
 
     if (doDebug) {
-        console.log("Entered function 'updateMasonry'");
+        console.log("Entered function 'updateMasonryElement'");
     }
 
     /*
      * Gotta get information about the container, aka inner width and child items.
-     * 
      * The width of the container must be without padding. If on less than IE9, won't work...
      */
-    const container      = document.getElementById(containerId);
 
     const containerStyle = getComputedStyle(container);
     
@@ -31,7 +34,9 @@ function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
 
     var i = 0;
 
-    // process rows
+    /*
+     * Process each row with some math.
+     */
     while (i < items.length) {
 
         // crudely calculate number of items per row from itemMaxHeight parameter
@@ -75,6 +80,6 @@ function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
     }
 
     if (doDebug) {
-        console.log("Exited function 'updateMasonry'");
+        console.log("Exited function 'updateMasonryElement'");
     }
 }
