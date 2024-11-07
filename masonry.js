@@ -51,9 +51,16 @@ function updateMasonryElement(container, itemMaxHeight, doDebug = false) {
 
                 // store initial dimensions as data if not done already
                 if (items[j].dataset.initWidth == null) {
-                    
-                    items[j].dataset.initWidth  = items[j].offsetWidth;
-                    items[j].dataset.initHeight = items[j].offsetHeight;
+
+                    // images have natural dimensions, other elements don't
+                    if (items[j].naturalWidth != undefined) {
+
+                        items[j].dataset.initWidth  = items[j].naturalWidth;
+                        items[j].dataset.initHeight = items[j].naturalHeight;
+                    } else {
+                        items[j].dataset.initWidth  = items[j].offsetWidth;
+                        items[j].dataset.initHeight = items[j].offsetHeight;
+                    }
                 }
                 
                 aspectRatioSum += items[j].dataset.initWidth / items[j].dataset.initHeight;
