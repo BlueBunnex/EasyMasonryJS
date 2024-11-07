@@ -3,11 +3,15 @@ function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
     if (doDebug) {
         console.log("Entered function 'updateMasonry'");
     }
-    
+
+    /*
+     * Gotta get information about the container, aka inner width and child items.
+     * 
+     * The width of the container must be without padding. If on less than IE9, won't work...
+     */
     const container      = document.getElementById(containerId);
 
-    // Have to get width of container without padding. If on less than IE9, won't work...
-    const containerStyle = getComputedStyle(element);
+    const containerStyle = getComputedStyle(container);
     
     if (!containerStyle) {
         alert('Masonry not supported on your device.');
@@ -21,7 +25,8 @@ function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
     const items          = container.querySelectorAll(".item");
 
     if (doDebug) {
-        console.log("Container Inner Width: " + containerWidth);
+        console.log("Container inner width: " + containerWidth);
+        console.log("Item count: " + items.length);
     }
 
     var i = 0;
