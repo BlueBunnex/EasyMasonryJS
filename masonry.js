@@ -5,8 +5,24 @@ function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
     }
     
     const container      = document.getElementById(containerId);
-    const containerWidth = container.offsetWidth - (parseFloat(container.style.paddingLeft) + parseFloat(container.style.paddingRight)) - 1; // minus one to avoid rounding errors
+
+    // Have to get width of container without padding. If on less than IE9, won't work...
+    const containerStyle = getComputedStyle(element);
+    
+    if (!containerStyle) {
+        alert('Masonry not supported on your device.');
+        return;
+    } 
+    
+    const containerWidth = container.clientWidth
+                           - (parseFloat(containerStyle.paddingLeft) + parseFloat(containerStyle.paddingRight)) // remove padding
+                           - 1;                                                                                 // minus one to avoid rounding errors
+    
     const items          = container.querySelectorAll(".item");
+
+    if (doDebug) {
+        console.log("Container Inner Width: " + containerWidth);
+    }
 
     var i = 0;
 
