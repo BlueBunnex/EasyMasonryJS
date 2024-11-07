@@ -1,4 +1,8 @@
 function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
+
+    if (doDebug) {
+        console.log("Entered function 'updateMasonry'");
+    }
     
     const container      = document.getElementById(containerId);
     const containerWidth = container.offsetWidth - 1; // minus one to avoid rounding errors
@@ -13,7 +17,7 @@ function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
         const itemRowCount = Math.ceil(containerWidth / itemMaxHeight);
 
         if (doDebug) {
-            console.log("Row count: " + itemRowCount);
+            console.log("Item/row count: " + itemRowCount);
         }
 
         // get sum of all aspect ratios
@@ -47,5 +51,9 @@ function updateMasonry(containerId, itemMaxHeight, doDebug = false) {
         }
 
         i += itemRowCount;
+    }
+
+    if (doDebug) {
+        console.log("Exited function 'updateMasonry'");
     }
 }
