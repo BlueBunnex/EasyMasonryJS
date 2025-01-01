@@ -3,9 +3,7 @@ async function initMasonryContainerById(containerId, minRowHeight, doDebug = fal
     await initMasonryContainerElement(document.getElementById(containerId), minRowHeight, doDebug);
 }
 
-// remember to put every element inside a div set to style="display: flex;"
-
-// layer system, where each layer is initialized and then items are shifted between them per the updater?
+// remember to put every element inside a div set to style="display: flex; row-wrap: wrap;"
 
 async function initMasonryContainerElement(container, minRowHeight, doDebug = false) {
 
