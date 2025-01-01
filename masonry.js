@@ -1,13 +1,13 @@
-async function initMasonryContainerById(containerId, doDebug = false) {
+async function initMasonryContainerById(containerId, minRowHeight, doDebug = false) {
 
-    await initMasonryContainerElement(document.getElementById(containerId), doDebug);
+    await initMasonryContainerElement(document.getElementById(containerId), minRowHeight, doDebug);
 }
 
 // remember to put every element inside a div set to style="display: flex;"
 
 // layer system, where each layer is initialized and then items are shifted between them per the updater?
 
-async function initMasonryContainerElement(container, doDebug = false) {
+async function initMasonryContainerElement(container, minRowHeight, doDebug = false) {
 
     if (doDebug) {
         console.log("Entered function 'updateMasonryElement'");
@@ -53,8 +53,8 @@ async function initMasonryContainerElement(container, doDebug = false) {
             return;
         }
 
-        // set the flex and width to the width when the height is a small value
-        let flex = width * 50 / height;
+        // set the flex and width to the width when the height is minRowHeight
+        let flex = width * minRowHeight / height;
 
         items[i].style.flex  = flex;
         items[i].style.width = flex + "px";
