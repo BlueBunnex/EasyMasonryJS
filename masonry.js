@@ -16,7 +16,6 @@ function initMasonryContainerElement(container, doDebug = false) {
     const items = container.querySelectorAll(".item");
 
     if (doDebug) {
-        console.log("Container inner width: " + containerWidth);
         console.log("Item count: " + items.length);
     }
 
