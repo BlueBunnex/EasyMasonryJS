@@ -53,10 +53,10 @@ function updateMasonryElement(container, itemMaxHeight, doDebug = false) {
         }
 
         // set the flex and width to the width when the height is 100
-        let flex = height * 100 / width;
+        let flex = width * 100 / height;
 
-        items[i].style.flex   = flex;
-        items[i].style.height = flex + "px";
+        items[i].style.flex  = flex;
+        items[i].style.width = flex + "px";
 
         if (doDebug) {
             console.log("Current item index: " + i + "; Item/row count: " + itemRowCount + "; Row height: " + height);
