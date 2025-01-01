@@ -43,20 +43,20 @@ function updateMasonryElement(container, itemMaxHeight, doDebug = false) {
         // (images have natural dimensions, other elements don't)
         let width, height;
         
-        if (items[j].naturalWidth != undefined) {
+        if (items[i].naturalWidth != undefined) {
 
-            width  = items[j].naturalWidth;
-            height = items[j].naturalHeight;
+            width  = items[i].naturalWidth;
+            height = items[i].naturalHeight;
         } else {
-            width  = items[j].offsetWidth;
-            height = items[j].offsetHeight;
+            width  = items[i].offsetWidth;
+            height = items[i].offsetHeight;
         }
 
         // set the flex and width to the width when the height is 100
         let flex = height * 100 / width;
 
-        items[j].style.flex   = flex;
-        items[j].style.height = flex + "px";
+        items[i].style.flex   = flex;
+        items[i].style.height = flex + "px";
 
         if (doDebug) {
             console.log("Current item index: " + i + "; Item/row count: " + itemRowCount + "; Row height: " + height);
