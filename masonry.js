@@ -52,10 +52,10 @@ async function initMasonryContainerElement(container, minRowHeight, doDebug = fa
             return;
         }
 
-        // set the flex and width to the width when the height is minRowHeight
+        // set the flex-grow, flex-basis, and width to the width when the height is minRowHeight
         let flex = width * minRowHeight / height;
 
-        items[i].style.flex  = flex;
+        items[i].style.flex  = flex + " 1 " + flex + "px";
         items[i].style.width = flex + "px";
     }
 
