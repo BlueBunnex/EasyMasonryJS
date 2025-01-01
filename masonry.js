@@ -1,5 +1,5 @@
 // remember to put every element inside a div set to style="display: flex; flex-wrap: wrap;"
-// if you don't want wrap, set minRowHeight to a small value and don't set flex-wrap
+// if you don't want wrap (multiple lines), set minRowHeight to a small value and don't set flex-wrap
 
 async function initMasonryContainerById(containerId, minRowHeight, doDebug = false) {
 
@@ -25,8 +25,8 @@ async function initMasonryContainerElement(container, minRowHeight, doDebug = fa
 
         /*
          * Wait for image to load (or fail to) before continuing.
-         * Otherwise, their sizes won't load and we cannot update
-         * the masonry properly.
+         * Otherwise, their sizes won't load and we cannot
+         * preserve the image's aspect ratio in the masonry.
          */
         if (items[i].tagName === "IMG") {
             
