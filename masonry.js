@@ -58,7 +58,7 @@ function updateMasonryElement(container, itemMinHeight, doDebug = false) {
         items[i].style.flex  = flex;
         items[i].style.width = flex + "px";
 
-        if (items[i].naturalWidth != undefined) {
+        if (items[i].naturalWidth == undefined) {
             
             items[i].style.height = "auto";
             items[i].style.aspectRatio = width / height;
