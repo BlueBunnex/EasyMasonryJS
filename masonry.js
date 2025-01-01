@@ -1,9 +1,10 @@
+// remember to put every element inside a div set to style="display: flex; flex-wrap: wrap;"
+// if you don't want wrap, set minRowHeight to a small value and don't set flex-wrap
+
 async function initMasonryContainerById(containerId, minRowHeight, doDebug = false) {
 
     await initMasonryContainerElement(document.getElementById(containerId), minRowHeight, doDebug);
 }
-
-// remember to put every element inside a div set to style="display: flex; row-wrap: wrap;"
 
 async function initMasonryContainerElement(container, minRowHeight, doDebug = false) {
 
