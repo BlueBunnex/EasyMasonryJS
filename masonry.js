@@ -30,10 +30,11 @@ async function initMasonryContainerElement(container, doDebug = false) {
          * the masonry properly.
          */
         if (items[i].tagName === "IMG") {
+            
             await new Promise(res => {
-                if (element.complete) { return res(); }
-                element.onload = () => res();
-                element.onerror = () => res();
+                if (items[i].complete) { return res(); }
+                items[i].onload  = () => res();
+                items[i].onerror = () => res();
             });
         }
 
