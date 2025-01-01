@@ -1,11 +1,11 @@
-function updateMasonryId(containerId, itemMaxHeight, doDebug = false) {
+function updateMasonryId(containerId, itemMinHeight, doDebug = false) {
 
-    updateMasonryElement(document.getElementById(containerId), itemMaxHeight, doDebug);
+    updateMasonryElement(document.getElementById(containerId), itemMinHeight, doDebug);
 }
 
 // remember to put every element inside a div set to style="display: flex;" and maybe a flex-overflow too
 
-function updateMasonryElement(container, itemMaxHeight, doDebug = false) {
+function updateMasonryElement(container, itemMinHeight, doDebug = false) {
 
     if (doDebug) {
         console.log("Entered function 'updateMasonryElement'");
@@ -52,11 +52,17 @@ function updateMasonryElement(container, itemMaxHeight, doDebug = false) {
             height = items[i].offsetHeight;
         }
 
-        // set the flex and width to the width when the height is 100
-        let flex = width * 100 / height;
+        // set the flex and width to the width when the height is itemMinHeight
+        let flex = width * itemMinHeight / height;
 
         items[i].style.flex  = flex;
         items[i].style.width = flex + "px";
+
+        if (items[i].naturalWidth != undefined) {
+            
+            items[i].style.height = "auto";
+            items[i].style.aspectRatio = width / height;
+        }
 
         if (doDebug) {
             console.log("Current item index: " + i + "; Item/row count: " + itemRowCount + "; Row height: " + height);
