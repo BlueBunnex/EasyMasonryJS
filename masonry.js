@@ -44,10 +44,6 @@ function initMasonryContainerElement(container, doDebug = false) {
 
         items[i].style.flex  = flex;
         items[i].style.width = flex + "px";
-
-        if (doDebug) {
-            console.log("Current item index: " + i + "; Item/row count: " + itemRowCount + "; Row height: " + height);
-        }
     }
 
     if (doDebug) {
