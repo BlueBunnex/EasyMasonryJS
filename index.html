@@ -5,32 +5,20 @@
     <title>Masonry demo</title>
     <script src="masonry.js"></script>
 </head>
-<body onload="updateMasonryId('container', 400);">
+<body onload="initMasonryContainerById('container', true);">
 
     <h1>Masonry demo</h1>
     <p><strong>By RedderBlanket</strong>. This is solely a horizontal (DeviantArt-like) masonry, not a vertical (Pinterest-like) masonry. <a href="https://github.com/BlueBunnex/EasyMasonryJS">Github repo</a>.</p>
 
     <p><strong>Image items:</strong> To preserve the image's aspect ratio, the image MUST be loaded before updating masonry, because otherwise it treats the image as if it was 0x0.</p>
 
-    <p><strong>Non-image items:</strong> Either ensure the item has a width and height when updating the masonry (which is used to calculate the aspect ratio).</p>
+    <p><strong>Non-image items:</strong> These don't work right now :\</p>
 
     <div id="container" style="display: flex; flex-wrap: wrap; align-items: start;">
-
-        <!-- you don't need to provide a width/height if the item has an inherent width/height (images) -->
         <img class="item" src="cat1.jpg">
         <img class="item" src="cat2.jpg">
         <img class="item" src="cat3.jpg">
         <img class="item" src="cat4.jpg">
-
-        <!-- generate some random blocks with a given width/height (this will tell the program what its aspect ratio is) -->
-        <script>
-            for (let i = 0; i < 50; i++) {
-                const color  = "#" + (Math.floor(Math.random() * 5) + 5) + (Math.floor(Math.random() * 5) + 5) + (Math.floor(Math.random() * 5) + 5);
-                const width  = Math.floor(Math.random() * 30) + 30;
-                const height = Math.floor(Math.random() * 30) + 30;
-                document.write(`<div class="item" style="background: ${ color }; color: white; padding: 1em; box-sizing: border-box; width: ${ width }px; height: ${ height }px;">${ i }</div>`);
-            }
-        </script>
     </div>
 
 </body>
