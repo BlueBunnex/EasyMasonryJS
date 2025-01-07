@@ -7,12 +7,15 @@
 </head>
 <body onload="initMasonryContainerById('container', 200);">
 
-    <h1>Masonry demo</h1>
-    <p><strong>By RedderBlanket</strong>. This is solely a horizontal (DeviantArt-like) masonry, not a vertical (Pinterest-like) masonry. <a href="https://github.com/BlueBunnex/EasyMasonryJS">Github repo</a>.</p>
+    <h1>Masonry demo (by BlueBunnex)</h1>
+    <p><a href="https://github.com/BlueBunnex/EasyMasonryJS">Github repo</a>.</p>
 
-    <p>Only <strong>img</strong> elements work as masonry items right now.</p>
-
-    <p>There is only one function you need to run, which only needs to run once (on page load). CSS flexbox logic handles the rest!</p>
+    <ul>
+        <li>There is only one function you need to run, which only needs to run once (on page load). CSS flexbox logic handles the rest!</li>
+        <li>The function takes in the container (either its ID or the object itself) and the minimum height a row can be in pixels.</li>
+        <li>This is solely a horizontal (DeviantArt-like) masonry, not a vertical (Pinterest-like) masonry.</li>
+        <li>Only <strong>img</strong> elements work as masonry items right now.</li>
+    </ul>
 
     <div id="container" style="display: flex; flex-wrap: wrap;">
         <img src="cat1.jpg">
