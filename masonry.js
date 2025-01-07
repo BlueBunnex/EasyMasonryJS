@@ -10,10 +10,6 @@ async function initMasonryContainerElement(container, minRowHeight) {
     
     const items = container.children;
 
-    if (doDebug) {
-        console.log("Item count: " + items.length);
-    }
-
     /*
      * Process each item.
      */
@@ -59,5 +55,5 @@ async function initMasonryContainerElement(container, minRowHeight) {
      * Adding this at the end prevents the last row from filling the whole row
      */
 
-    container.innerHTML += `<div style="height: 0; flex: 200000;"></div>`;
+    container.innerHTML += "<div style='flex: 200000;'></div>";
 }
