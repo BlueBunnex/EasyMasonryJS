@@ -1,16 +1,12 @@
 // remember to put every element inside a div set to style="display: flex; flex-wrap: wrap;"
 // if you don't want wrap (multiple lines), set minRowHeight to a small value and don't set flex-wrap
 
-async function initMasonryContainerById(containerId, minRowHeight, doDebug = false) {
+async function initMasonryContainerById(containerId, minRowHeight) {
 
-    await initMasonryContainerElement(document.getElementById(containerId), minRowHeight, doDebug);
+    await initMasonryContainerElement(document.getElementById(containerId), minRowHeight);
 }
 
-async function initMasonryContainerElement(container, minRowHeight, doDebug = false) {
-
-    if (doDebug) {
-        console.log("Entered function 'updateMasonryElement'");
-    }
+async function initMasonryContainerElement(container, minRowHeight) {
     
     const items = container.children;
 
@@ -59,7 +55,9 @@ async function initMasonryContainerElement(container, minRowHeight, doDebug = fa
         items[i].style.width = flex + "px";
     }
 
-    if (doDebug) {
-        console.log("Exited function 'updateMasonryElement'");
-    }
+    /*
+     * Adding this at the end prevents the last row from filling the whole row
+     */
+
+    container.innerHTML += `<div style="height: 0; flex: 200000;"></div>`;
 }
